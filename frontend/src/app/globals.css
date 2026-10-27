@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/*
+  Dark, ocean-inspired palette for the Survey Review Tool.
+  Deep navy background (like deep water), teal accents (like sonar readouts),
+  amber/red for anomaly severity (stands out against the cool palette).
+*/
+@theme {
+  --color-ocean-950: #050b14;
+  --color-ocean-900: #0a1420;
+  --color-ocean-800: #0f1f30;
+  --color-ocean-700: #16304a;
+  --color-teal-400: #2dd4bf;
+  --color-teal-300: #5eead4;
+  --color-amber-400: #fbbf24;
+  --color-red-400: #f87171;
+  --color-ocean-600: #1f4a6e;
+  --color-ocean-300: #8fb4c9;
+}
+
+body {
+  background: linear-gradient(180deg, var(--color-ocean-950) 0%, var(--color-ocean-900) 100%);
+  color: #e2f0f5;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}

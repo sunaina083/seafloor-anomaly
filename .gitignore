@@ -1,0 +1,11 @@
+.venv/
+node_modules/
+__pycache__/
+.next/
+/data/
+ml/data/tiles/
+ml/data/tiles_drishti/
+*.pt
+backend/*.db
+.env
+.vscode/
