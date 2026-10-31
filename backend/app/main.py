@@ -12,7 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .database import Base, engine
-from .routers import tiles, heatmap 
+from .routers import tiles, heatmap, evaluation
 
 Base.metadata.create_all(bind=engine)  # creates flags.db / the flags table if not present
 
@@ -27,6 +27,7 @@ app.add_middleware(
 
 app.include_router(tiles.router)
 app.include_router(heatmap.router)
+app.include_router(evaluation.router)
 
 
 @app.get("/")

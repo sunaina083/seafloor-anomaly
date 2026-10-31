@@ -40,3 +40,37 @@ export async function submitFlag(tileId: string, payload: FlagPayload): Promise<
   });
   if (!res.ok) throw new Error(`Failed to submit flag: ${res.status}`);
 }
+export interface DepthResult {
+  fraction: number;
+  tiles_reviewed: number;
+  debris_found: number;
+  precision: number;
+  recall: number;
+}
+
+export interface EffortResult {
+  recall_target: number;
+  tiles_reviewed: number;
+  fraction_reviewed: number;
+  effort_saved: number;
+}
+
+export interface MethodResult {
+  key: string;
+  label: string;
+  at_depth: DepthResult[];
+  effort: EffortResult[];
+}
+
+export interface Evaluation {
+  n_tiles: number;
+  n_debris: number;
+  debris_rate: number;
+  methods: MethodResult[];
+}
+
+export async function fetchEvaluation(): Promise<Evaluation> {
+  const res = await fetch(`${API_BASE}/evaluation`);
+  if (!res.ok) throw new Error(`Failed to fetch evaluation: ${res.status}`);
+  return res.json();
+}
